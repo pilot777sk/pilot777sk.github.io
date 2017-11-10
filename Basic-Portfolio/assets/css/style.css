@@ -12,9 +12,10 @@ body{
 	font-family: "Geogia", Times, Times New Roman, serif;
 	color: #ffffff;
 	text-align: center;	
-	position: relative;
+	
 	float: left;
-	margin-left: 80px;
+	margin-left: 145px;
+	margin-top: 15px;
 }
 
 .main-body {
@@ -38,11 +39,13 @@ nav{
 }
 .nav-links{
 	width: 700px;
-	position: relative;
+	
 	float: left;
 	display: inline;
 	text-align: right;
 	padding: 15px;
+	margin-top: 45px;
+    margin-left: -30px;
 }
 
 .links li{
@@ -103,8 +106,74 @@ nav{
 	margin-top: 15px;
 }
 
+.photo1 {
+  position: relative;
+}
+.photo1 h2 {
+    position: absolute;
+    z-index: 2;
+    top: 100px;
+    left: 33px;
+    background: deepskyblue;
+    color: greenyellow;
+    width: 250px;
+    text-align: center;
+}
 
+.photo2 {
+  position: relative;
+}
+.photo2 h2 {
+    position: absolute;
+    z-index: 2;
+    top: 100px;
+    left: 349px;
+    background: deepskyblue;
+    color: greenyellow;
+    width: 250px;
+    text-align: center;
+}
+.photo3 {
+  position: relative;
+}
+.photo3 h2 {
+    position: absolute;
+    z-index: 2;
+    top: 325px;
+    left: 33px;
+    background: deepskyblue;
+    color: greenyellow;
+    width: 250px;
+    text-align: center;
+}
 
+.photo4 {
+  position: relative;
+}
+.photo4 h2 {
+    position: absolute;
+    z-index: 2;
+    top: 325px;
+    left: 349px;
+    background: deepskyblue;
+    color: greenyellow;
+    width: 250px;
+    text-align: center;
+}
+
+.photo5 {
+  position: relative;
+}
+.photo5 h2 {
+    position: absolute;
+    z-index: 2;
+    top: 550px;
+    left: 33px;
+    background: deepskyblue;
+    color: greenyellow;
+    width: 250px;
+    text-align: center;
+}
 
 
 footer{
@@ -123,15 +192,10 @@ footer{
 	padding-top: 25px;
 }
 
-.text1{
-	position: absolute;
-	top: 25px;
-	left: 33px;
-	background-color: "pink";
+a:hover {
+    background-color: yellow;	
+}	
 
-
-
-}
 
 
 
