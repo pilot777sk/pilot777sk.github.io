@@ -21,13 +21,13 @@ window.onload = function () {
 
   // create alphabet ul
   var buttons = function () {
-    myButtons = document.getElementById('buttons');
-    letters = document.createElement('ul');
+    myButtons = document.getElementById("buttons");
+    letters = document.createElement("ul");
 
     for (var i = 0; i < alphabet.length; i++) {
-      letters.id = 'alphabet';
-      list = document.createElement('li');
-      list.id = 'letter';
+      letters.id = "alphabet";
+      list = document.createElement("li");
+      list.id = "letter";
       list.innerHTML = alphabet[i];
       check();
       myButtons.appendChild(letters);
@@ -42,15 +42,15 @@ window.onload = function () {
 
 
   // Create geusses ul
-   result = function () {
-    wordHolder = document.getElementById('hold');
-    correct = document.createElement('ul');
+   function result() {
+    wordHolder = document.getElementById("hold");
+    correct = document.createElement("ul");
     sound = document.getElementById("myAudio")
     sound.play();
     for (var i = 0; i < word.length; i++) {
-      correct.setAttribute('id', 'my-word');
-      guess = document.createElement('li');
-      guess.setAttribute('class', 'guess');
+      correct.setAttribute("id", "my-word");
+      guess = document.createElement("li");
+      guess.setAttribute("class", "guess");
       if (word[i] === "-") {
         guess.innerHTML = "-";
         space = 1;
@@ -77,17 +77,12 @@ window.onload = function () {
         showLives.innerHTML = "You Win!";
         var won = true;
 
-        
-        //showScore();
-        //Wins();
       }
     }
     if (won == true){
       gamesWon++;
     }
   }
-
-   
 
 
   // OnClick Function
@@ -106,7 +101,7 @@ window.onload = function () {
       if (j === -1) {
         lives -= 1;
         comments();
-      //  animate();
+      
       } else {
         comments();
       }
@@ -123,14 +118,6 @@ function showScore(){
     showGames.innerHTML = "Games Played: " + gamesPlayed;
     showWins.innerHTML = "Games Won: " + gamesWon;
 }
-
-
- 
-/*function Wins() {
-   showWins.innerHTML = "Games Won: " + gameWins;
-}  */
-
-
     
   // Play
   play = function () {
@@ -139,27 +126,21 @@ function showScore(){
     wordNew = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
-
     geusses = [ ];
     lives = 10;
     counter = 0;
     space = 0;
     result();
     comments();
-   
     showScore();
-     gamesPlayed ++;
-
-    
-     
+     gamesPlayed ++;     
   } 
 
   play();
-  
 
    // Reset
 
-  document.getElementById('reset').onclick = function() {
+  document.getElementById("reset").onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
    
