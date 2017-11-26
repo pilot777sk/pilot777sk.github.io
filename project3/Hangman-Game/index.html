@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Hangman game</title>
+  
+  
+  
+      <link rel="stylesheet" href="assets/css/style.css">
+
+  
+</head>
+
+<body>
+  <audio id="myAudio">  
+  <source src="Turkey-gobble.mp3" type="audio/mpeg">
+  </audio>
+  <div class="wrapper">
+   <h1>Hangman</h1>
+   <h2>Thanksgiving Theme</h2> 
+    <p>Use the alphabet below to guess the word  </p>
+</div>
+<div class="wrapper">
+    <div id="buttons" >
+    </div>  
+   <!--<p id="catagoryName"> Guess Word</p> -->
+    <div id="hold">
+    </div>
+    <p id="mylives"></p>
+    <p id="scores"></p>
+    <p id="wins"></p>
+    <div class="container">
+      <!--<button id="hint">Hint</button> -->
+      <button id="reset">Play again</button>
+    </div>
+</div>
+  
+    <script  src="assets/javascript/game.js"></script>
+
+</body>
+</html>
