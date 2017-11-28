@@ -11,13 +11,12 @@ window.onload = function () {
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
-  var gamesPlayed = 0;      //played
-  var gamesWon = 0;
+  var gamesPlayed = 0;    //played
+  var gamesWon = 0;       // Wins counter
   // Get elements
   var showLives = document.getElementById("mylives");
   var showGames = document.getElementById("scores");
   var showWins = document.getElementById("wins");
-
 
   // create alphabet ul
   var buttons = function () {
@@ -32,15 +31,12 @@ window.onload = function () {
       check();
       myButtons.appendChild(letters);
       letters.appendChild(list);
-       
     }
   }
    //'pick ramdom word' 
 
    var words =["turkey", "dinner", "family", "friends", "ham"]
   
-
-
   // Create geusses ul
    function result() {
     wordHolder = document.getElementById("hold");
@@ -65,7 +61,7 @@ window.onload = function () {
   }
   
   // Show lives
-   comments = function () {
+    function comments () {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
@@ -76,7 +72,6 @@ window.onload = function () {
       if (counter + space === geusses.length) {
         showLives.innerHTML = "You Win!";
         var won = true;
-
       }
     }
     if (won == true){
@@ -84,10 +79,9 @@ window.onload = function () {
     }
   }
 
-
   // OnClick Function
-   check = function () {
-    list.onclick = function () {
+     function check () {
+      function list.onclick() {
       var geuss = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
@@ -101,11 +95,10 @@ window.onload = function () {
       if (j === -1) {
         lives -= 1;
         comments();
-      
       } else {
         comments();
       }
-      playSound();
+        playSound();
     }
   }
   
@@ -120,7 +113,7 @@ function showScore(){
 }
     
   // Play
-  play = function () {
+  function play () {
 
     word = words[Math.floor(Math.random() * words.length)];
     wordNew = word.replace(/\s/g, "-");
@@ -133,7 +126,7 @@ function showScore(){
     result();
     comments();
     showScore();
-     gamesPlayed ++;     
+    gamesPlayed ++;     
   } 
 
   play();
