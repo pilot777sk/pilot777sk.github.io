@@ -12,33 +12,36 @@ window.onload = function () {
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
   var gamesPlayed = 0;    //played
-  var gamesWon = 0;       // Wins counter
+  var gamesWon = 0;       // won score
   // Get elements
   var showLives = document.getElementById("mylives");
   var showGames = document.getElementById("scores");
   var showWins = document.getElementById("wins");
 
+
   // create alphabet ul
-  var buttons = function () {
+  function buttons() {
     myButtons = document.getElementById("buttons");
     letters = document.createElement("ul");
 
     for (var i = 0; i < alphabet.length; i++) {
       letters.id = "alphabet";
       list = document.createElement("li");
-      list.id = "letter";
+      list.setAttribute('class', 'letter')
+      list.id = "letter-" + alphabet[i];
       list.innerHTML = alphabet[i];
       check();
       myButtons.appendChild(letters);
       letters.appendChild(list);
+       
     }
   }
    //'pick ramdom word' 
 
-   var words =["turkey", "dinner", "family", "friends", "ham"]
-  
+  var words =["turkey", "dinner", "family", "friends", "ham"]
+
   // Create geusses ul
-   function result() {
+  function result() {
     wordHolder = document.getElementById("hold");
     correct = document.createElement("ul");
     sound = document.getElementById("myAudio")
@@ -54,72 +57,92 @@ window.onload = function () {
         guess.innerHTML = "_";
       }
 
-      geusses.push(guess);
+      guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
   }
   
   // Show lives
-    function comments () {
+  function comments() {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
       
       //showScore();
     }
-    for (var i = 0; i < geusses.length; i++) {
-      if (counter + space === geusses.length) {
+    for (var i = 0; i < guesses.length; i++) {
+      if (counter + space === guesses.length) {
         showLives.innerHTML = "You Win!";
         var won = true;
+    
       }
     }
     if (won == true){
       gamesWon++;
     }
   }
-
-  // OnClick Function
-     function check () {
-      function list.onclick() {
-      var geuss = (this.innerHTML);
+ 
+  /// OnClick Function
+  function check() {
+    list.onclick = function () {
+      var guess = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
-      for (var i = 0; i < word.length; i++) {
-        if (word[i] === geuss) {
-          geusses[i].innerHTML = geuss;
-          counter += 1;
-        } 
-      }
-      var j = (word.indexOf(geuss));
-      if (j === -1) {
-        lives -= 1;
-        comments();
-      } else {
-        comments();
-      }
-        playSound();
-    }
-  }
-  
-function playSound(){
-    var sound = document.getElementById("myAudio");
-    sound.play();
-}
+      processUserInput(guess);
 
-function showScore(){
-    showGames.innerHTML = "Games Played: " + gamesPlayed;
-    showWins.innerHTML = "Games Won: " + gamesWon;
-}
+    }
+  }  
+
+  function processUserInput(letterPicked) {
+    for (var i = 0; i < word.length; i++) {
+      if (word[i] === letterPicked) {
+        guesses[i].innerHTML = letterPicked;
+        counter += 1;
+      } 
+    }
+    var j = (word.indexOf(letterPicked));
+    if (j === -1) {
+      lives -= 1;
+      comments();
+    
+    } else {
+      comments();
+    }
+    playSound();
+    // End of code to be stripped out to new function
+  }     
+
+
+  // This is the keypress listener
+  document.onkeyup = function(event) {
+      var key = event.key.toLowerCase();
+      document.getElementById("letter-"+key).setAttribute("class", "active");
+      document.getElementById("letter-"+key).onclick = null;
+
+      processUserInput(key);
+      // process all the things
+  }
+
+  
+  function playSound(){
+      var sound = document.getElementById("myAudio");
+      sound.play();
+  }
+
+  function showScore(){
+      showGames.innerHTML = "Games Played: " + gamesPlayed;
+      showWins.innerHTML = "Games Won: " + gamesWon;
+  }
     
   // Play
-  function play () {
+  play = function () {
 
     word = words[Math.floor(Math.random() * words.length)];
     wordNew = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
-    geusses = [ ];
+    guesses = [ ];
     lives = 10;
     counter = 0;
     space = 0;
@@ -130,13 +153,15 @@ function showScore(){
   } 
 
   play();
+  
 
    // Reset
 
-  document.getElementById("reset").onclick = function() {
+  document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
    
     play();
   }
+
 }

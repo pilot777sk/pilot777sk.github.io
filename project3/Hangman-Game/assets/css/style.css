@@ -1,5 +1,5 @@
-
-
+/* Variabes */
+/* Mixin's */
 body {
   background-image: url('Turkeypic.jpg');
   background-repeat: no-repeat;
@@ -96,18 +96,11 @@ p {
   filter: alpha(opacity=40);
   transition: all 1s ease-in;
   transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  cursor: default;
 }
 .active:hover {
   transition: all 1s ease-in;
   transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  transition: all 1s ease-in;
-  transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  opacity: 0.4; 
 }
 
 #mylives {
@@ -117,9 +110,6 @@ p {
 }
 
 button {
-  border-radius: 5px;
-  border-radius: 5px;
-  border-radius: 5px;
   border-radius: 5px;
   background: #c1d72e;
   color: #fff;
@@ -133,8 +123,7 @@ button {
   outline: none;
 }
 button:hover {
-  transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; 
   transition: all 0.3s ease-in-out;
   background: #fff;
   border: solid 1px #fff;
