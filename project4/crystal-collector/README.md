@@ -1,0 +1,1 @@
+Pick on the Gem's to generate a number for yourself, your number needs to match the Games number. continue pressing different Gems to increase your number.
