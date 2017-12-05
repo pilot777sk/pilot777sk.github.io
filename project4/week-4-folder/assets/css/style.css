@@ -1,0 +1,124 @@
+
+/*------main section------*/
+body {
+  background-color: #b2C3d2;
+  font-family: 'Arial', sans-serif;
+}
+header {
+  font-size: 50px;
+  text-align: center;
+  padding: 20px;
+  border: 0 none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: 200px;
+}
+.characterWrapper {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+#gameMessage {
+  text-align: center;
+  font-size: 10px;
+}
+#choose-enemy-button {
+  visibility: hidden; 
+}
+#restart-button {
+  visibility: hidden; 
+}
+#turn-counter {
+  font-size: 150%;
+}
+
+/*----charactor------*/
+
+.character {
+  /*width: 153px; */
+  margin: 0px 20px 0px 20px; 
+  cursor: pointer;
+  display: inline-block;
+}
+.character img {
+  border: 0 none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: 150px;
+}
+.character-name {
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 30px;
+  font-family: 'Areial', cursive;
+  font-size: 25px;
+}
+.character-health {
+  text-align: center;
+}
+
+/*------action --------*/
+.attack {
+  text-align: center;
+}
+.action {
+  margin: 15px 0px;
+}
+#attack-button{
+	visibility: hidden; 
+}
+.btn {
+	background: darkblue;
+	color: white;	
+}
+.enemy {
+  height: 150px;
+	width: 150px;
+	margin: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #009999;
+  color: #b2C3d2
+  float: left;
+}
+#attacker {
+	padding: 5px;
+}
+.target-enemy {
+  background-color: black;
+  color: white;
+}
+
+/*---oponents------*/
+#available-to-attack-section {
+  float: right;
+}
+#available-to-attack-section img {
+	height: 100px;
+  width: 100px;
+}
+/*-----defender--------*/
+
+#defender {
+  width: 190px;
+  height: 180px;
+  float: right;
+}
+#defender-name {
+  text-align: center;
+}
+#defender-image {
+  padding: 0px 16px;
+  margin: 3px 0px;
+}
+#defender-health {
+  text-align: center;
+}
+
