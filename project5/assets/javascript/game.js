@@ -77,7 +77,7 @@ $(document).ready(function(){
         for(var i = 0; i < questions.questionsArray.length; i++){
             $("#questionQ").append("<div>" + questions.questionsArray[i].question + "</div><br>"
             + "<div><form><label class='radio-inline'><input type = 'radio' name = " + i + " value = " + questions.questionsArray[i].a + " id = 'disable1' " + i + ">" + questions.questionsArray[i].a + "</label></form></div>"
-    
+            + "<div><input type = 'radio' name = " + i + " value = " + questions.questionsArray[i].a + " id = 'disable2' " + i + ">" + questions.questionsArray[i].a + "</div>"
             + "<div><input type = 'radio' name = " + i + " value = " + questions.questionsArray[i].b + " id = 'disable2' " + i + ">" + questions.questionsArray[i].b + "</div>"
             + "<div><input type = 'radio' name = " + i + " value = " + questions.questionsArray[i].c + " id = 'disable3' " + i + ">" + questions.questionsArray[i].c + "</div>"
             + "<div><input type = 'radio' name = " + i + " value = " + questions.questionsArray[i].d + " id = 'disable4' " + i + ">" + questions.questionsArray[i].d + "</div><br>"

@@ -41,7 +41,7 @@ h2 {
 p {
   font-size: 1.6em;
 }
-
+/*
 #alphabet {
   margin: 15px auto;
   padding: 0;
@@ -50,7 +50,7 @@ p {
 #alphabet:after {
   content: "";
   display: table;
-  clear: both;
+  clear: both;       
 }
 
 #alphabet li {
@@ -72,7 +72,7 @@ p {
 #alphabet li:hover {
   background: #c1d72e;
   border: solid 1px #fff;
-  color: #fff;
+  color: #fff;*/
 }
 
 #my-word {
