@@ -1,0 +1,43 @@
+
+body{
+	background: lightblue;
+}
+div{
+	background-color: white;
+	margin: 10px;
+	width: 30%;
+}
+div{
+	border: solid 2px pink;
+	padding: 10px;
+}
+h1, h3, span{
+	font-weight: bold;
+	text-align: center;
+}
+h1{
+	font-size: 30pt;
+}
+
+/* gif elements*/
+.gifs a {
+  position: relative;
+  display: block;
+}
+
+.gif-preload {
+  display: none;
+}
+
+.gif-loading {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: #fff;
+  top: 0;
+  left: 0;
+}
+	
+
+/* classes */
