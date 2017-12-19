@@ -1,134 +1,98 @@
                                                                                                                                                                                                                                                                                                                         
-      // Initial array of movies
-      var animals = ["Cat", "Dog", "Bird", "Fish"];
-      var giphyKey = "QF3kFucd2hR9YF1yzfoZxQhELUh91QK2";
+$(document).ready(function() {
+    // displaySimsonGifs is the  function renders/display the HTML content
+    // Initial array
+    var gifs = ['Homer', 'Bart', 'Lisa', 'Ralph', 'Flanders' ];
+    var giphyKey = "QF3kFucd2hR9YF1yzfoZxQhELUh91QK2";
+        function displayGiphy() {
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + " simpsons&limit=10&rating&api_key="+giphyKey;
+    // Creating an AJAX call for the specific Simson button being clicked
 
-      // displayMovieInfo function re-renders the HTML to display the appropriate content
-      function displayAnimalInfo() {
+    // This ajax call is similar working-movie lesson
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+            }).done(function(response) {
 
-        var animal = $(this).attr("data-name");
-        //var animal = "Dog";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&limit=10&rating=g&api_key="+giphyKey;
+            console.log(response);
+                    //Creating a loop to open the data within the JSON object
+                    for (var i = 0; i < response.data.length; i++) {
+                    //Creating a new div to hold the Simson image
+                        var gifDiv = $('<div>');
+                        gifDiv.attr('class', 'gif-div');
+                    //Create image tage to hold gif
+                    //attact the src to the image tage See cat-button lesson    
+                        var gifImg = $('<img>');
+                        gifImg.attr('class', 'gifImg img-fluid');
+                        gifImg.attr('data-state', 'still');
+                        gifImg.attr('data-still', response.data[i].images.fixed_height_still.url);
+                        gifImg.attr('data-animate', response.data[i].images.fixed_height.url);
+                        imageUrl = response.data[i].images.downsized_still.url;
+                        console.log('still: ' + imageUrl);
+                        gifImg.attr('src', imageUrl);
+                    //Find the Rating position within the object
+                    // Within the new div we append a paragraph for the rating
+                        var rating = $('<p>').html('Rating: ' + response.data[i].rating);
+                        rating.attr('class', 'rating');
+                        gifDiv.append(gifImg);
+                        gifDiv.append(rating);
+                        $('#giffy-area').append(gifDiv);
+                    }
+            });
 
-        // Creating an AJAX call for the specific movie button being clicked
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).done(function(response) {
+        } //Function for displaying Charter gifs
+    
+            function createButtons() {
 
-          console.log(response.data);
-          $("#animals").empty();
-          for(var i = 0; i < response.data.length; i++) {
-            $("#animals").append("<img src='"+response.data[i].images.fixed_height.url+"'/>");
-          }
-          
-          // Creating a div to hold the movie
-          var movieDiv = $("<div class='animals'>");
+                $('#button-area').empty();
 
-          // Storing the rating data
-          var rating = response.Rated;
+                for (var j = 0; j < gifs.length; j++) {
+                    var gifButton = $('<button>');
+                    gifButton.addClass('gif btn-group btn-group-sm');
+                    gifButton.attr('data-name', gifs[j]);
+                    gifButton.text(gifs[j]);
+                    $('#button-area').append(gifButton);
+                }
+                
+            } // Create buttons
 
-          // Creating an element to have the rating displayed
-          var pOne = $("<p>").text("Rating: " + rating);
+            $('#search-btn').on('click', function(event) {
+                event.preventDefault();       
+                gif = $('#giffy-search').val().trim(); 
+                gifs.push(gif);
+                $('#giphy-search').val('');
+                createButtons();
+            });
 
-          // Displaying the rating
-          movieDiv.append(pOne);
+            $(document).on('click', '.gif', function(e) {
+                e.preventDefault;  
+                $('#giffy-area').empty();                            
+                gif = $(this).attr('data-name');
+                console.log('gif: ' + gif);
+                displayGiphy();
+            });
 
-          // Storing the release year
-          var released = response.Released;
+            // Data State Still,Animate
+            $(document).on('click', '.gifImg', function(e) {
+                e.preventDefault;  
+                
+                var state = $(this).attr('data-state');
+                console.log(state);
 
-          // Creating an element to hold the release year
-          var pTwo = $("<p>").text("Released: " + released);
+                if (state === 'still') {
+                    $(this).attr('data-state', 'animate');
+                    $(this).attr('src', $(this).attr('data-animate'));
+                } else {
+                    $(this).attr('data-state', 'still');
+                    $(this).attr('src', $(this).attr('data-still'));
+            }
 
-          // Displaying the release year
-          movieDiv.append(pTwo);
-
-          // Storing the plot
-          var plot = response.Plot;
-
-          // Creating an element to hold the plot
-          var pThree = $("<p>").text("Plot: " + plot);
-
-          // Appending the plot
-          movieDiv.append(pThree);
-
-          // Retrieving the URL for the image
-          var imgURL = response.Poster;
-
-          // Creating an element to hold the image
-          var image = $("<img>").attr("src", imgURL);
-
-          // Appending the image
-          movieDiv.append(image);
-
-          // Putting the entire movie above the previous movies
-          $("#movies-view").prepend(movieDiv);
-        });
-
-      }
-
-      // Function for displaying movie data
-      function renderButtons() {
-
-        // Deleting the movies prior to adding new movies
-        // (this is necessary otherwise you will have repeat buttons)
-        $("#buttons-view").empty();
-
-        // Looping through the array of movies
-        for (var i = 0; i < animals.length; i++) {
-
-          // Then dynamicaly generating buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-          var a = $("<button>");
-          // Adding a class of movie to our button
-          a.addClass("animal");
-          // Adding a data-attribute
-          a.attr("data-name", animals[i]);
-          // Providing the initial button text
-          a.text(animals[i]);
-          // Adding the button to the buttons-view div
-          $("#buttons-view").append(a);
-        }
-        $(".animal").on("click", displayAnimalInfo());
-      }
-
-      // This function handles events where a movie button is clicked
-      $("#add-animal").on("click", function(event) {
-        event.preventDefault();
-        // This line grabs the input from the textbox
-        var movie = $("#movie-input").val().trim();
-
-        // Adding movie from the textbox to our array
-        movies.push(movie);
-
-        // Calling renderButtons which handles the processing of our movie array
-        renderButtons();
-      });
-
-      // Adding a click event listener to all elements with a class of "movie"
-      $(".gif").on("click", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }
-    });
-
-      // Calling the renderButtons function to display the intial buttons
-      renderButtons();
-
-  
+            }); 
 
 
+            createButtons();
 
-
+}); // document Ready
 
 
 

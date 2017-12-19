@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Simpson Searcher</title>
+        <meta charset="UTF-8">    
 
-<head>
-	<meta charset="UTF-8">
-	<title>API Gif prj6</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
-<body>
-	<div id="buttons-view">
-	</div>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <!-- Google Fonts -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
+       
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+    <body>
+        
+        <div class="col-sm-12" "text-center">
+            <div class="container">
+                <h1 class="display-4 text-uppercase">Simpson's character Search</h1>
+            </div>   
+        </div>
 
-	<form id="animalForm">
-		<label for="animal-input">Add as animal</label>
-		<input type="text" id="animal-input">
-		<br>
-		<input id="addAnimal" type="submit" value="Submit">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            
+                            <input type="text" id="giffy-search" class="form-inline" placeholder="Enter Simpsons Character">
 
-		
-	</form>
-		<div id="animals"></div>
+                            <button type="submit" id="search-btn" class="btn btn-info" >Search</button>
+                        </div>
+                    </form>
+                    <div id="button-area"></div>
+                </div>
+                </div>
+             <div class="row"   
+                <div class="col-sm-12" id="giffy-area"></div>
+            </div>
+                
+            </div>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="./assets/javascript/javascript.js"></script>
- 
+    </body>    
+    
+        <!-- jQuery  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- popper  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <!-- bootstap js  -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <!-- game js  -->
+        <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+     
+     </body>
+ </html>
 
-</body>
-</html>
+
+
 
 
 

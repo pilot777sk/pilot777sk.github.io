@@ -1,1 +1,1 @@
-Pick on the Gem's to generate a number for yourself, your number needs to match the Games number. continue pressing different Gems to increase your number.
+The Simson's........Enter your Character and press there button.
