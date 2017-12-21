@@ -46,11 +46,11 @@ $(document).ready(function() {
 
                 $('#button-area').empty();
 
-                for (var j = 0; j < gifs.length; j++) {
+                for (var ii = 0; ii < gifs.length; ii++) {
                     var gifButton = $('<button>');
                     gifButton.addClass('gif btn-group btn-group-sm');
-                    gifButton.attr('data-name', gifs[j]);
-                    gifButton.text(gifs[j]);
+                    gifButton.attr('data-name', gifs[ii]);
+                    gifButton.text(gifs[ii]);
                     $('#button-area').append(gifButton);
                 }
                 
