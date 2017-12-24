@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Randon Number Game</title>
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
+	<link rel="stylesheet" type="text/css" ref="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" ref="assets/css/style.css">
 
+</head>
+<body>
+	<!-- Creates the Overall Grid -->
+  <div class="container">
+
+    <!-- First Row -->
+    <div class="row" id="first">
+
+      <!-- First (and only column) -->
+      <div class="col-md-12">
+        <h1>Match the The Random Number Game</h1>
+        <br>
+        <p>The Game will start off with a Random Number. Your number will be zero at the start, by Clicking on the Cards below the game will randomly generate a number to be added to your number. If you match the the Random Number you Win, if you overshoot you loose.</p>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="row" id="Second">
+
+      <!-- First of three columns -->
+      <div class="col-md-4">
+        <h3>Random Number to Match</h3>
+        <p>Guess this: <span id="randNum"></span></p>
+      </div>
+
+      <!-- Second of three columns -->
+      <div class="col-md-4">
+        <h3>Score</h3>
+        <p>Wins: <span id="wins"></span></p>
+        <p>Losses: <span id="losses"></span></p>
+      </div>
+
+      <!-- third of third columns -->
+      <div class="col-md-4">
+        <h3>Your Total Score</h3>
+        <p>Score is: <span id="endTotal"></span></p>
+      </div>
+
+    </div>
+
+    <!-- Thrid Row -->
+    <div class="row" id="third">
+
+      <!-- First (and only column) -->
+      <div class="col-md-12">
+        <h3>Use the playing cards to Generate your number</h3>
+        <div class="cards">
+		<img src="assets/images/aceclubs.png" class=cardImage id="click1" alt="Ace Clubs">
+		<img src="assets/images/acediamonds.png" class=cardImage id="click2" alt="Ace Diamonds">
+		<img src="assets/images/acehearts.png" class=cardImage id= "click3" alt="Ace Hearts">
+		<img src="assets/images/acespades.png" class=cardImage id= "click4" alt="Ace Spades">
+		</div>
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
+
+</body>
+</html>

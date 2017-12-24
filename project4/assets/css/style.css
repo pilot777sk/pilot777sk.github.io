@@ -1,0 +1,24 @@
+.row{
+	background: blue;
+}
+h1{
+	font-size: 30px;
+}
+
+.container{
+	background-color: lightblue;
+	color: red;
+}
+
+
+
+#first{
+	background-color: violet;
+
+}
+#Second{
+	background-color: lightgreen;
+}
+#third{
+	background-color: lime;
+}
