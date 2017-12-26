@@ -20,7 +20,7 @@ $(document).ready(function() {
                     //Creating a new div to hold the Simson image
                         var gifDiv = $('<div>');
                         gifDiv.attr('class', 'gif-div');
-                    //Create image tage to hold gif
+                    //Create image tage to hold gif Append Gif and rating
                     //attact the src to the image tage See cat-button lesson    
                         var gifImg = $('<img>');
                         gifImg.attr('class', 'gifImg img-fluid');
@@ -36,11 +36,13 @@ $(document).ready(function() {
                         rating.attr('class', 'rating');
                         gifDiv.append(gifImg);
                         gifDiv.append(rating);
-                        $('#giffy-area').append(gifDiv);
+                        $('#giffy-area').prepend(gifDiv);
                     }
             });
 
-        } //Function for displaying Charter gifs
+        } 
+          //Function for displaying Charter gifs
+          // empty deletes previous items displayed
     
             function createButtons() {
 
@@ -54,8 +56,10 @@ $(document).ready(function() {
                     $('#button-area').append(gifButton);
                 }
                 
-            } // Create buttons
-
+            }
+             // Create buttons
+             // The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+             // The value is you input and the trim removes white space from the ends
             $('#search-btn').on('click', function(event) {
                 event.preventDefault();       
                 gif = $('#giffy-search').val().trim(); 
@@ -72,7 +76,7 @@ $(document).ready(function() {
                 displayGiphy();
             });
 
-            // Data State Still,Animate
+            // Data State Still,Animate and an event listener function for cliclk animation
             $(document).on('click', '.gifImg', function(e) {
                 e.preventDefault;  
                 
@@ -82,7 +86,7 @@ $(document).ready(function() {
                 if (state === 'still') {
                     $(this).attr('data-state', 'animate');
                     $(this).attr('src', $(this).attr('data-animate'));
-                } else {
+                } else  {
                     $(this).attr('data-state', 'still');
                     $(this).attr('src', $(this).attr('data-still'));
             }

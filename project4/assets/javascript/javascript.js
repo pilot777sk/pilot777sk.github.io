@@ -23,12 +23,13 @@ var spades=Math.floor(Math.random() * 12) + 1;
 		
 //List Global varibles
 
-var Total=0;
-var wins=0;
-var losses=0;
+var Total=0,
+    wins=0,
+    losses=0;
 
 	$("#wins").text(wins);
 	$("#losses").text(losses);
+	$("#endTotal").text(Total);
 
 
 //Restart
