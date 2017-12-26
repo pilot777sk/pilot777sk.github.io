@@ -4,12 +4,16 @@
 //Place the random number on HTML page use append method (.text)
 //UCF lesson 4.1 / 7 trigger-random
 $(document).ready(function(){
-  var rand_num = Math.floor((Math.random()* 101) + 19)
+  var rand_num = (Math.floor(Math.random() * 101 + 19) + 0);
   $("#randNum").text( rand_num);
 
   console.log(rand_num);
   
+//List Global varibles
 
+var Total=0,
+    wins=0,
+    losses=0;
 
 
 
@@ -21,11 +25,7 @@ var clubs=Math.floor(Math.random() * 12) + 1;
 var spades=Math.floor(Math.random() * 12) + 1;
 
 		
-//List Global varibles
 
-var Total=0,
-    wins=0,
-    losses=0;
 
 	$("#wins").text(wins);
 	$("#losses").text(losses);
