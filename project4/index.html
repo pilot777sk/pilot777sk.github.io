@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Randon Number Game</title>
+	   
+	<!--<link rel="stylesheet" type="text/css" ref="assets/css/reset.css"> -->
+	
 	<!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
-	<link rel="stylesheet" type="text/css" ref="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" ref="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
+
+    <link rel="stylesheet" type="text/css" ref="assets/css/style.css">
 
 </head>
 <body>
@@ -14,11 +17,11 @@
   <div class="container">
 
     <!-- First Row -->
-    <div class="row" id="first">
+    <div class="row" id="first" style="background-color": blue;>
 
       <!-- First (and only column) -->
       <div class="col-md-12">
-        <h1>Match the The Random Number Game</h1>
+        <h1 style="color: blue;">Match the The Random Number Game</h1>
         <br>
         <p>The Game will start off with a Random Number. Your number will be zero at the start, by Clicking on the Cards below the game will randomly generate a number to be added to your number. If you match the the Random Number you Win, if you overshoot you loose.</p>
       </div>
@@ -29,21 +32,21 @@
 
       <!-- First of three columns -->
       <div class="col-md-4">
-        <h3>Random Number to Match</h3>
-        <p>Guess this: <span id="randNum"></span></p>
+        <h3 style="color: blue;">Random Number to Match</h3>
+        <p>Guess this: <span style=" font-weight: bold;" id="randNum"></span></p>
       </div>
 
       <!-- Second of three columns -->
       <div class="col-md-4">
-        <h3>Score</h3>
-        <p>Wins: <span id="wins"></span></p>
-        <p>Losses: <span id="losses"></span></p>
+        <h3 style="color: blue;">Score</h3>
+        <p>Wins: <span style=" font-weight: bold;" id="wins"></span></p>
+        <p>Losses: <span style=" font-weight: bold;" id="losses"></span></p>
       </div>
 
       <!-- third of third columns -->
       <div class="col-md-4">
-        <h3>Your Total Score</h3>
-        <p>Score is: <span id="endTotal"></span></p>
+        <h3 style="color: blue;">Your Total Score</h3>
+        <p>Score is: <span style=" font-weight: bold;" id="endTotal"></span></p>
       </div>
 
     </div>
