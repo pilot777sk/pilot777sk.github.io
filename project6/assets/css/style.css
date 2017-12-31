@@ -2,59 +2,49 @@ body {
     font-family: "Comic Sans MS", cursive, sans-serif;
     width: 1200px;
     height: 1500px;
-    background-image: url("project6/assets/images/Clouds.jpeg");
+    background-image: url("assets/images/Clouds.jpeg");
 }
 .container{
-    
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;     
 }
-
 h1,h2,h3 {
     font-family: "Itim", sans-serif;
     font-weight: 700;
-
-}
-
-h1{
     font-style: italic;
 }
-
-
-button#search-btn {
+#search-btn {
     font-size: 20px;
 }
-
 .form-inline {
     width: 205px;
 }
-
-
 #search-btn {
     margin-left: 25px;
     margin-top: 10px;
-    margin-bottom: 10px; 
-    
+    margin-bottom: 10px;     
 }
-
-div#giffy-area {
-    border: 1px solid #ddd;
+#giffy-area {
+    border: 1px solid orange;
     border-radius: 5px;
-
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-
-img.gifImg {
+.gifImg {
     max-width: 300px;
     max-height: 150px;
-    margin: 5px;
+    margin: 15px;
 }
-
 .gif-div {
     min-height: 215px;
     float: left;
 }
-
 .rating {
+    margin-top: 20px;
+    margin-left: 20px;
     text-transform: uppercase;
-    padding: 0 0 0 10px;
+    padding: 5 5 5 10px;
 }
 
 

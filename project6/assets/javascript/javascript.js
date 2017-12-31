@@ -4,7 +4,7 @@ $(document).ready(function() {
     // Initial array
     var gifs = ['Homer', 'Bart', 'Lisa', 'Ralph', 'Flanders' ];
     var giphyKey = "QF3kFucd2hR9YF1yzfoZxQhELUh91QK2";
-        function displayGiphy() {
+        function displayGif() {
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + " simpsons&limit=10&rating&api_key="+giphyKey;
     // Creating an AJAX call for the specific Simson button being clicked
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
                     //Creating a new div to hold the Simson image
                         var gifDiv = $('<div>');
                         gifDiv.attr('class', 'gif-div');
-                    //Create image tage to hold gif Append Gif and rating
+                    //Create image tag to hold gif
                     //attact the src to the image tage See cat-button lesson    
                         var gifImg = $('<img>');
                         gifImg.attr('class', 'gifImg img-fluid');
@@ -31,16 +31,19 @@ $(document).ready(function() {
                         console.log('still: ' + imageUrl);
                         gifImg.attr('src', imageUrl);
                     //Find the Rating position within the object
-                    // Within the new div we append a paragraph for the rating
+                    // Within the new div we append a paragraph for the rating display
+                    // put the rating prior to image so text is on top
                         var rating = $('<p>').html('Rating: ' + response.data[i].rating);
                         rating.attr('class', 'rating');
-                        gifDiv.append(gifImg);
                         gifDiv.append(rating);
-                        $('#giffy-area').prepend(gifDiv);
+                        gifDiv.append(gifImg);
+                        
+                        $('#giffy-area').append(gifDiv);
                     }
             });
 
         } 
+
           //Function for displaying Charter gifs
           // empty deletes previous items displayed
     
@@ -50,7 +53,7 @@ $(document).ready(function() {
 
                 for (var ii = 0; ii < gifs.length; ii++) {
                     var gifButton = $('<button>');
-                    gifButton.addClass('gif btn-group btn-group-sm');
+                    gifButton.addClass('gif btn-group btn-group-md');
                     gifButton.attr('data-name', gifs[ii]);
                     gifButton.text(gifs[ii]);
                     $('#button-area').append(gifButton);
@@ -58,13 +61,16 @@ $(document).ready(function() {
                 
             }
              // Create buttons
+             //createButtons();
              // The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
-             // The value is you input and the trim removes white space from the ends
+             // event.target would contain the reference to the element which invoked this method/event
+             // the click button event is the object that is refered to as "this" 
+             // The value is your input and the trim removes white space from the ends
             $('#search-btn').on('click', function(event) {
                 event.preventDefault();       
                 gif = $('#giffy-search').val().trim(); 
                 gifs.push(gif);
-                $('#giphy-search').val('');
+                $('#giffy-search').val('');
                 createButtons();
             });
 
@@ -73,10 +79,12 @@ $(document).ready(function() {
                 $('#giffy-area').empty();                            
                 gif = $(this).attr('data-name');
                 console.log('gif: ' + gif);
-                displayGiphy();
+
+                displayGif();
             });
 
-            // Data State Still,Animate and an event listener function for cliclk animation
+            // Data State Still,Animate
+            // home work - pausing-gifs-solution.html - 06-ajax
             $(document).on('click', '.gifImg', function(e) {
                 e.preventDefault;  
                 
@@ -86,15 +94,16 @@ $(document).ready(function() {
                 if (state === 'still') {
                     $(this).attr('data-state', 'animate');
                     $(this).attr('src', $(this).attr('data-animate'));
-                } else  {
+                } else {
                     $(this).attr('data-state', 'still');
                     $(this).attr('src', $(this).attr('data-still'));
+                 
             }
 
             }); 
 
-
             createButtons();
+            
 
 }); // document Ready
 
