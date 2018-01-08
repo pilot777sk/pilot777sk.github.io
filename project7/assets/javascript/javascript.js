@@ -12,12 +12,12 @@
   //Global variables
   var dataRef = fireBase.database();
 
-  var trainName = "";
-  var destination = "";
-  var trainTime = "";
-  var frequency = "";
-  var arrival = "";
-  var minAway = "";
+  var trainName;
+  var destination;
+  var trainTime;
+  var frequency;
+  var arrival;
+  var minAway;
 
   // input data button click
 
@@ -38,7 +38,15 @@
     Time: trainTime,
     Frequency: frequency,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
-  });
+
+    });
+  });  
+   //clear input boxes
+  $("#trainNameInput").val("");
+  $("#destNameInput").val("");
+  $("#trainTimeInput").val("");
+  $("#freqInput").val(""); 
+  
  
 dataRef.ref().on("child_added", function(childSnapshot){
   console.log(childSnapshot.val().trainName);
@@ -46,11 +54,7 @@ dataRef.ref().on("child_added", function(childSnapshot){
   console.log(childSnapshot.val().trainTime);
   console.log(childSnapshot.val().frequency);
   });
-  //clear input boxes
-  $("#trainNameInput").val("");
-  $("#destNameInput").val("")
-  $("#trainTimeInput").val("")
-  $("#freqInput").val("")
+  
 
 
   $("#train-table > tbody").append("<tr><td>" + trainName + "<tr><td>" + destination + "<tr><td>" + trainTime + "<tr><td>" + trainTime + "<tr><td>");
