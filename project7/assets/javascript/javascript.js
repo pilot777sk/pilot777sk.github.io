@@ -88,7 +88,7 @@ dataRef.ref().on("child_added", function(childSnapshot){
 
 
 
-  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrival + "</td><td>" + timeToGo + "<td></tr>");
+  $("#train-table > tbody").prepend("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrival + "</td><td>" + timeToGo + "<td></tr>");
 });
   
 
