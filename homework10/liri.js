@@ -1,3 +1,9 @@
+require("dotenv").config();
+
+var spotify = new Spotify(keys.sportify);
+var client = new Twitter(keys.twitterKeys);
+
+
 var request = require('request');
 
 var fs = require("fs");
@@ -10,82 +16,88 @@ var Spotify = require('node-spotify-api');
 
 
 
-var spotify = new Spotify({
-    id: '4923644b8d074dc7a86f90b7c8101803',
-    secret: 'cbf5a0ea31fc403ab47334bd71073c53'
-});
-
 var getTweets = function() {
-    var client = new Twitter(keys.twitterKeys);
 
-    var params = {
-        screen_name: 'pilot777sk',
-        count: 10
-    };
 
-    //console.log(client);
+        var params = {
+            screen_name: 'pilot777sk',
+            count: 10
+        };
 
-    client.get("statuses/user_timeline", params, function(error, tweets, response) {
-        if (!error) {
+        //console.log(client);
 
-            for (var i = 0; i < tweets.length; i++) {
-                console.log("************");
-                console.log(tweets[i].created_at)
-                console.log(tweets[i].text);
-                console.log("************");
+        client.get("statuses/user_timeline", params, function(error, tweets, response) {
+            if (!error) {
+
+                for (var i = 0; i < tweets.length; i++) {
+                    console.log("************");
+                    console.log(tweets[i].created_at)
+                    console.log(tweets[i].text);
+                    console.log("************");
+                }
+            } else {
+                console.log(error);
             }
-        } else {
-            console.log(error);
-        }
-    });
+        });
 
-}
-/*var getArtist = function(artist) {
-    return artist.name;
-}  */
+    }
+    /*var getArtist = function(artist) {
+        return artist.name;
+    }  */
 
 var getSpotify = function(songName) {
-        console.log("getSpotify fired", spotify);
-        spotify.search({
+    console.log("getSpotify fired", spotify);
+    //songName = process.argv[3];
+
+    spotify.search({
             type: 'track',
             query: songName
-        }, function(err, data) {
+        },
+        function(err, data) {
+
+
             if (err) {
                 console.log('Error occurred: ' + err);
                 return;
             }
-            if(songName ===""){
-            	console.log('++++++++++++++');
-            	console.log('Artist: Ace of Base');
-            	console.log(Song: The Sign);
-            	console.log('++++++++++++++');
-            }
-            else{
-            var songs = data.tracks.items[i];
+            if (songName === "") {
+                console.log('++++++++++++++');
+                console.log("Artist: Ace of Base");
+                console.log("Song: The Sign");
+                console.log('++++++++++++++');
+            } else {
+                var songs = data.tracks.items;
+                for (var i = 0; i < songs.length; i++) {
 
-            console.log(songs);
-            for (var i = 0; i < songs.length; i++) {
-            	console.log(songs[i]);
-                console.log(i);
-                console.log('artist: ' + songs[i].artist.map(getArtist));
-                console.log('song name: ' + songs[i].name);
-                console.log('preview song: ' + songs[i].preview_url);
-                console.log('album: ' + songs[i].album.name);
-                console.log('++++++++++++++++++++++++++++++++++++')
+                    console.log(i);
+                    console.log("Song: " + songs.song);
+                    console.log("Artist(s):" + songs[i].artists[i].name);
+                    console.log("Album: " + songs[i].album.name);
+                    console.log("Preview link: " + songs[i].preview_url);
+                    console.log('++++++++++++++++++++++++++++++++++++')
 
+                }
             }
-        }
         });
-    }
-    /*
-    OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=2b051efa
+}
 
-    var getMovie = function(movieTitle) {
+    // var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
-        
-        request('http://www.omdbapi.com/?t=' + movieName + '&r=json', function(error, response, body) {
+
+var getMovie = function(movieThis) {
+
+
+    request('http://www.omdbapi.com/?i=tt3896198&apikey=2b051efa/?t=' + movieName + '&r=json',
+     function(error, response, body) {
+     	if (err) {
+                console.log('Error occurred: ' + err);
+                return;
+            }
+            if (movieName === "") {
+            	movieName = "Mr.Nobody"
+            }
             console.log('error:', error); // Print the error if one occurred
-            console.log('statusCode:', response && response.statusCode= 200); // Print the response status code if a response was received
+            console.log('statusCode:', response && response.statusCode = 200); // Print the response status code if a response was received
             console.log('body:', body); // Print the HTML for the Google homepage.
 
             var jsonData = JSON.parse(body);
@@ -102,9 +114,9 @@ var getSpotify = function(songName) {
             console.log('Rotten tomatoes URL: ' + jsonData.tomatoURL);
         }
 
-        });
-    }
-    */
+    });
+}
+
 var pick = function(caseData, functionData) {
     //console.log("pick fired", caseData, functionData);
     switch (caseData) {
@@ -124,12 +136,15 @@ var pick = function(caseData, functionData) {
             console.log("Liri does not know that");
     }
 }
+var argOne = process.argv[2];
+var argTwo = process.argv[3];
 
-
+//process argv 2 & 3 and now argOne and argTwo and passed to "pick"
 var run = function(argOne, argTwo) {
     pick(argOne, argTwo);
 };
 console.log(process.argv[2]);
 console.log(process.argv[3]);
+// grab the inputs from position 2 & 3 of the command line
 
 run(process.argv[2], process.argv[3]);
