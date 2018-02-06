@@ -2,12 +2,12 @@
 var Letter = require('./letter.js');
 
 //Random words to guess.
-newWord = {
-  wordList:['MICHIGAN','OHIO','WASHINGTON','FLORIDA','TEXAS','GEORGIA','IOWA','HAWAII',
-  'ALASK','IDAHO','COLORADO','','OREGON'],
-  
+function newWord() {
+    this.wordArr = ['MICHIGAN','OHIO','WASHINGTON','FLORIDA','TEXAS','GEORGIA','IOWA','HAWAII',
+    'ALASK','IDAHO','COLORADO','','OREGON'],
+    this.randNum = Math.floor(Math.random() * wordArr.length ),
+    this.chosenWord = wordArr[randNum],
 };
-
 
 
 

@@ -19,6 +19,8 @@ var Letter = function(lttr) {
   };
 };
 
+
+
 // export to word.js
 module.exports = Letter;
 
