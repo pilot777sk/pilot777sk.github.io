@@ -1,26 +1,24 @@
-// contstructor for underlying character or place holder
+
 console.log("this is the letter file");
 
-Letter.prototype.prntReveal = function prntReveal() {
-    if (this.show) {
-        return this.letter;
-    } else {
-        return '_';
+// input letter and compare to word CONSTRUCTOR
+var Letter = function(lttr) {
+  this.lttr = lttr;
+  this.appear = false;
+
+  this.letterReveal = function() {
+    if(this.lttr == ' '){ 
+      this.appear = true;
+      return '  ';
+    }if(this.appear === false){ 
+      return ' - ';
+    } else{ 
+      return this.lttr;
     }
+
+  };
 };
 
-// compair letter input to blank space
-function Letter(letter) {
-    this.letter = letter;
-    if (this.letter == ' ') {
-        this.show = true;
-    } else {
-        this.show = false;
+// export to word.js
+module.exports = Letter;
 
-    }
-}
-
-
-module.exports = {
-    Letter
-};
