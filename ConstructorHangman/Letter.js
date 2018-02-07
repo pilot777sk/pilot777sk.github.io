@@ -11,7 +11,7 @@ var Letter = function(lttr) {
       this.appear = true;
       return '  ';
     }if(this.appear === false){ 
-      return ' - ';
+      return ' _ ';
     } else{ 
       return this.lttr;
     }
